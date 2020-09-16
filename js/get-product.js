@@ -1,20 +1,43 @@
 'use strict'
 
-
-
+// helper function
 function getProduct() {
   var response = prompt('Would you rather have a house or hotel?');
-  var message;
+  var item;
 
-  if (response === 'house') {
-    message = 'Houses are nice!';
-  } else if (response === 'hotel') {
-    message = 'Hotels are nice!';
-  } else {
-    message = 'Fine';
+  while(response != 'house' && response != 'hotel') {
+    item = prompt('Would you rather have a house or hotel? BE SPECIFIC')
   }
 
-  return document.write('<h3>' + message + '</h3>');
+  if (response === 'house') {
+    item = '<img src="../images/house.png">';
+  } else if (response === 'hotel') {
+    item = '<img src="../images/hotel.png">';
+  } 
+
+  return item;
 }
 
-getProduct();
+// helper function
+function getCount() {
+  var count = prompt('Great! How many would you like?');
+  while(isNaN(count) || count === '') {
+    count = prompt("PLEASE enter a number. How many would you like?");
+  }
+  return count;
+}
+
+function showOrder() {
+  var result = '';
+  var itemType = getProduct();
+  var total = getCount();
+
+  for(var i = 0; i < total; i++) {
+    result = result + '<p>' + itemType + '</p>';
+    console.log(result);
+  }
+
+  return document.write(result);
+}
+
+showOrder();
