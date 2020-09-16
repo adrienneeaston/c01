@@ -6,7 +6,7 @@ function getProduct() {
   var item;
 
   while(response != 'house' && response != 'hotel') {
-    item = prompt('Would you rather have a house or hotel? BE SPECIFIC')
+    response = prompt('Would you rather have a house or hotel? BE SPECIFIC');
   }
 
   if (response === 'house') {
